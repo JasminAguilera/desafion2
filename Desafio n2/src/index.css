@@ -1,0 +1,120 @@
+.Cabecera {
+    min-height: 200px;
+    background-color: #F4978E;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 60px;
+    background-image: url('./img/texturacolmena.png');
+}
+
+.contenido{
+    display: flex;
+    justify-content: space-around;
+}
+
+.titulotexto{
+    font-size: 80px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: white;
+    text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.estilotabla tr {
+    margin-bottom: 500px;
+    
+}
+
+body{
+    background-color: #ffdab9;
+}
+
+.estilotabla table {
+    border-collapse: separate; /* Asegura que las celdas tengan un borde separado */
+    border-spacing: 10px 0; /* Espacio vertical entre las filas y 0px entre las columnas */
+    width: 435px;
+    
+}
+.estilotabla td {
+    padding: 10px; /* Añade relleno a las celdas para darles espacio interno */
+}
+  
+.estiloFooter {
+    min-height: 50px;
+    background-color: #f8ad9d;
+
+}
+
+.titulos {
+    width: 500px;
+    background-image: './src/img/texturacolmena.png';
+}
+
+.tituloflores{
+margin-top: 0px;
+color: white;
+text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.imagencabecera {
+    max-height: 150px;
+    border: black solid 5px;
+    border-radius: 10px;
+}
+
+.Florazul {
+    max-width: 200px;
+    border: gray solid 5px;
+    border-radius: 10px;
+}
+
+.florgirasol {
+    max-width: 300px;
+    border: gray solid 5px;
+    border-radius: 10px;
+}
+
+.flormorada {
+    max-width: 200px;
+    border: gray solid 5px;
+    border-radius: 10px;
+}
+
+.flormoradaoscura {
+    max-width: 200px;
+    border: gray solid 5px;
+    border-radius: 10px;
+}
+
+.florroja {
+    max-width: 200px;
+    border: gray solid 5px;
+    border-radius: 10px;
+}
+
+.florrosada {
+    max-width: 200px;
+    border: gray solid 5px;
+    border-radius: 10px;
+}
+
+.piedepagina{
+    text-align: center;
+    padding-top: 15px;
+    color: white;
+    text-shadow: 
+    -1px -1px 0 gray,  
+     1px -1px 0 gray,
+    -1px  1px 0 gray,
+     1px  1px 0 gray;
+}
