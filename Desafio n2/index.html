@@ -1,13 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Floristería Online</title>
     <link rel="stylesheet" type="text/css" href="./src/index.css" />
+    <style>
+        .producto-fila {
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .producto-fila td {
+            vertical-align: middle;
+            padding: 5px;
+        }
+        .producto-fila img {
+            width: 80px;
+            height: auto;
+            margin-right: 15px;
+        }
+        .producto-fila button {
+            margin-left: 20px;
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .producto-fila button:hover {
+            background-color: #45a049;
+        }
+        .carrito-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .carrito-item button {
+            background-color: #f44336;
+            margin-left: 10px;
+            font-size: 0.8em;
+            padding: 5px 8px;
+        }
+        #carrito-lista {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            min-height: 50px; /* Para que se vea aunque esté vacío */
+        }
+        #vaciar-carrito-btn {
+            background-color: #c0392b;
+            margin-top: 10px;
+            padding: 8px 12px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #vaciar-carrito-btn:hover {
+            background-color: #a0291d;
+        }
+        .tachado {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
 </head>
-
+ 
 <body>
     <div id="cabecera" class="Cabecera">
         <div class="titulos">
@@ -15,82 +80,87 @@
             <h1 class="tituloflores">Flores</h1>
         </div>
         <img src="./src/img/abeja.png" class="imagencabecera">
+        <div style="margin-left: auto; padding-right: 20px;">
+            <p>Carrito: <span id="carrito-contador">0</span> ítems</p>
+            <div id="carrito-lista">
+                <p id="carrito-vacio-msg" style="text-align: center; color: #888;">Tu carrito está vacío.</p>
+            </div>
+            <button id="vaciar-carrito-btn" style="display: none;">Vaciar Carrito</button>
+        </div>
     </div>
-    <div class="contenido" >
-        <table class="estilotabla">
-            <tr>
+ 
+    <div class="contenido">
+        <table class="estilotabla" id="lista-productos">
+            <tr class="producto-fila" data-nombre="Orquídea azul" data-precio="500" data-imagen="./src/img/florazul.png">
                 <td>
                     <img src="./src/img/florazul.png" class="Florazul">
-                    <!-- imagen -->
                 </td>
                 <td>
                     <p>Orquídea azul</p>
                     <p>$500</p>
-                    <!-- Texto -->
+                    <button class="agregar-carrito-btn">Agregar al Carrito</button>
                 </td>
             </tr>
-            <tr>
+            <tr class="producto-fila" data-nombre="Girasol" data-precio="650" data-imagen="./src/img/florgirasol.png">
                 <td>
                     <img src="./src/img/florgirasol.png" class="florgirasol">
-                    <!-- imagen -->
                 </td>
                 <td>
                     <p>Girasol</p>
                     <p>$650</p>
-                    <!-- Texto -->
+                    <button class="agregar-carrito-btn">Agregar al Carrito</button>
                 </td>
             </tr>
-            <tr>
+            <tr class="producto-fila" data-nombre="Allium" data-precio="450" data-imagen="./src/img/flormorada.png">
                 <td>
                     <img src="./src/img/flormorada.png" class="flormorada">
-                    <!-- imagen -->
                 </td>
                 <td>
                     <p>Allium</p>
                     <p>$450</p>
-                    <!-- Texto -->
+                    <button class="agregar-carrito-btn">Agregar al Carrito</button>
                 </td>
-                <tr>
-                    <td>
-                        <img src="./src/img/flormoradaoscura.png" class="flormoradaoscura">
-                        <!-- imagen -->
-                    </td>
-                    <td>
-                        <p>Allium oscura</p>
-                        <p>$450</p>
-                        <!-- Texto -->
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="./src/img/florroja.png" class="florroja">
-                        <!-- imagen -->
-                    </td>
-                    <td>
-                        <p>Flor roja</p>
-                        <p>$300</p>
-                        <!-- Texto -->
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="./src/img/florrosada.png" class="florrosada">
-                        <!-- imagen -->
-                    </td>
-                    <td>
-                        <p>Tulipan rosa</p>
-                        <p>$500</p>
-                        <!-- Texto -->
-                    </td>
-                </tr>
+            </tr>
+            <tr class="producto-fila" data-nombre="Allium oscura" data-precio="450" data-imagen="./src/img/flormoradaoscura.png">
+                <td>
+                    <img src="./src/img/flormoradaoscura.png" class="flormoradaoscura">
+                </td>
+                <td>
+                    <p>Allium oscura</p>
+                    <p>$450</p>
+                    <button class="agregar-carrito-btn">Agregar al Carrito</button>
+                </td>
+            </tr>
+            <tr class="producto-fila" data-nombre="Flor roja" data-precio="300" data-imagen="./src/img/florroja.png">
+                <td>
+                    <img src="./src/img/florroja.png" class="florroja">
+                </td>
+                <td>
+                    <p>Flor roja</p>
+                    <p>$300</p>
+                    <button class="agregar-carrito-btn">Agregar al Carrito</button>
+                </td>
+            </tr>
+            <tr class="producto-fila" data-nombre="Tulipán rosa" data-precio="500" data-imagen="./src/img/florrosada.png">
+                <td>
+                    <img src="./src/img/florrosada.png" class="florrosada">
+                </td>
+                <td>
+                    <p>Tulipán rosa</p>
+                    <p>$500</p>
+                    <button class="agregar-carrito-btn">Agregar al Carrito</button>
+                </td>
             </tr>
         </table>
     </div>
+ 
     <div id="footer" class="estiloFooter">
         <p class="piedepagina">
             @derechosreservados
         </p>
     </div>
+ 
+    <script src="./app.js"></script>
 </body>
-
+ 
 </html>
